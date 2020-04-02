@@ -1,101 +1,130 @@
 # GitTips
 
-##### clone项目
+Clone project
+```sh
 git clone git://example.com/myproject
-
-##### 如果你想快速的代上面的分支，你可以直接切换到那个分支：
+```
+如果你想快速的代上面的分支，你可以直接切换到那个分支：
+```sh
 git checkout origin/feature
+```
 
-##### 新增远程项目
+新增远程项目
+```
 git remote add [remote repo name as you want] [remote repo address]
-
-##### 查看远程仓库
+```
+查看远程仓库
+```
 git remote
-
-##### 向远程仓库推送
+```
+向远程仓库推送
+```sh
 git push [remote repo name 1] branchName
 git push [remote repo name 2] branchName
-
-##### 创建本地分支
+```
+创建本地分支
+```
 git branch [branch name]
-
-##### 如果你想快速的代上面的分支，你可以直接切换到那个分支：
+```
+如果你想快速的代上面的分支，你可以直接切换到那个分支：
+```
 git checkout origin/feature
-
-##### 切换分支
+```
+切换分支
+```
 git checkout [branch name]
-
-##### 切换本地分支
+```
+切换本地分支
+```
 git checkout 分支名
-
-##### 提交分支数据到远程服务器
+```
+提交分支数据到远程服务器
+```
 git push origin <local_branch_name>:<remote_branch_name>
- 
+ ```
 
-##### 删除远程分支
+删除远程分支
+```
 git push origin :develop
-
-##### 从已有的分支创建新的分支(如从master分支),创建一个dev分支
+```
+从已有的分支创建新的分支(如从master分支),创建一个dev分支
+```
 git checkout -b dev
-
-##### 关联对于dev分支的跟踪
+```
+关联对于dev分支的跟踪
+```
 git branch --set-upstream-to=origin/dev
-
-##### 取消对master的跟踪
+```
+ 取消对master的跟踪
+```
 git branch --unset-upstream master
-
-##### 撤销本地仓库(未提交)的修改
+```
+ 撤销本地仓库(未提交)的修改
+```
 git checkout fileName
-
-##### 取消暂存(已执行git add）
+```
+ 取消暂存(已执行git add）
+```
 git reset HEAD <filename>
-
-##### 查看指定文件的历史版本
+```
+ 查看指定文件的历史版本
+```
 git log <filename>
-
-##### 回滚到指定commitID
+```
+ 回滚到指定commitID
+```
 git checkout <commitID> <filename>
-
-##### 删除最后一次远程提交
+```
+ 删除最后一次远程提交
+```
 git revert HEAD
 git push origin master
+```
+ revert是放弃指定提交的修改，但是会生成一次新的提交，需要填写提交注释，以前的历史记录都在；
+ reset是指将HEAD指针指到指定提交，历史记录中不会出现放弃的提交记录
 
-##### revert是放弃指定提交的修改，但是会生成一次新的提交，需要填写提交注释，以前的历史记录都在；
-##### reset是指将HEAD指针指到指定提交，历史记录中不会出现放弃的提交记录
-
-##### 远端即可创建新的分支my_remote_new_branch,提交本地修改
+ 远端即可创建新的分支my_remote_new_branch,提交本地修改
+```
 git push origin master:my_remote_new_branch
-
-##### 当前分支的某个文件提交到另一个分支
+```
+ 当前分支的某个文件提交到另一个分支
+``` 
   1.先在将当前把目标文件提交到remote repository, 记下commit-id, git log
   2.git checkout 目标分支
   3.git cherry-pick commit-id
   4.git push origin {目标分支}
-
-##### 使用此标记来过滤合并提交以查看项目的历史记录
-git log --oneline --no-merges
-
-
-##### 改写上一个提交信息
-git commit -v --amend
-
-##### 输出酷炫的可视化日志
-git log --pretty=oneline --graph --decorate --all
-
-##### 如果想知道更改内容和更改者的相关简要说明，可以向git申请变更日志类似的文件
-git shortlog <commit>..HEAD
-
-##### 查看特定日期范围的日志
-git log --since= FEB 10 2016  --until= FEB 19 2016
-
-##### 列出所有git别名
-git config -l | grep alias | sed  s/^alias.//g
-
-##### 搜索包含关键字的提交
-git log -S"config.menu_items"
-
-##### 多人合作开发 
 ```
+ 使用此标记来过滤合并提交以查看项目的历史记录
+```
+git log --oneline --no-merges
+```
+
+ 改写上一个提交信息
+```
+git commit -v --amend
+```
+ 输出酷炫的可视化日志
+```
+git log --pretty=oneline --graph --decorate --all
+```
+ 如果想知道更改内容和更改者的相关简要说明，可以向git申请变更日志类似的文件
+```
+git shortlog <commit>..HEAD
+```
+ 查看特定日期范围的日志
+```
+git log --since= FEB 10 2016  --until= FEB 19 2016
+```
+ 列出所有git别名
+```
+git config -l | grep alias | sed  s/^alias.//g
+```
+ 搜索包含关键字的提交
+```
+git log -S"config.menu_items"
+```
+ 多人合作开发 
+```sh
 情景: A同学B同学都在下班之前pull了master分支的最新代码
 A同学 昨天加班加点在master分支提交了自己的成果
 B同学今天早上来也勤勤恳恳地工作, 正打算提交, 怎么保证自己的代码提交了, 又不会冲掉A同学昨晚的提交呢?
