@@ -71,6 +71,10 @@ git reset HEAD <filename>
 ```
 git log <filename>
 ```
+ see some abbreviated stats for each commit
+```
+ $ git log --stat
+```
  回滚到指定commitID
 ```
 git checkout <commitID> <filename>
