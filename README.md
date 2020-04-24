@@ -158,3 +158,7 @@ Windows提示fatal: Authentication failed
 ```s
 设置>凭据管理器 删除gitlab保存的凭据，再次pull/clone会提示输入用户名密码
 ```
+取消cherry-pick
+```s
+git cherry-pick --abort
+```
