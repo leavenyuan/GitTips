@@ -153,3 +153,8 @@ git add -u
 git commit -m "关于本次提交的描述"
 git push origin master   // 如果其他同学没有在你操作步骤四~六期间提交代码, 应该成功提交到Remote Repository, 并且保留了两位同学的提交
 ```
+
+Windows提示fatal: Authentication failed
+```s
+设置>凭据管理器 删除gitlab保存的凭据，再次pull/clone会提示输入用户名密码
+```
