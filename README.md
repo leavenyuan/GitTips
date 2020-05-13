@@ -162,3 +162,44 @@ Windows提示fatal: Authentication failed
 ```s
 git cherry-pick --abort
 ```
+
+正在进行项目中某一部分的工作，里面的东西处于一个比较杂乱的状态，突然想转到其他分支上进行一些工作。但又不想提交进行了一半的工作，否则以后无法回到这个工作点。git stash用于将这些修改保存到本地。
+```s
+stash暂存文件的范围
+1) 添加到暂存区的修改（staged changes）
+2) Git跟踪的但并未添加到暂存区的修改（unstaged changes）
+stash不会缓存的文件
+1)* 在工作目录中新的文件（untracked files）
+2) 被忽略的文件（ignored files）
+
+
+
+给stash加message方便区分
+git stash save "stash incomplete fix for bug#1"
+
+重新应用缓存的stash（下面的指令用于将缓存堆栈中的第一个stash删除，并将对应修改应用到当前工作目录下）
+git stash pop
+
+多次将缓存堆栈中的stash应用到工作目录中，但不删除stash拷贝
+git stash apply #默认为最近的stash
+或通过名字指定
+git stash apply stash@{1}
+
+查看现有stash
+$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051 Revert "added file_size"
+stash@{2}: WIP on master: 21d80a5 added number to log
+
+移除stash
+git stash drop stash@{1}
+
+删除所有缓存的stash
+git stash clear
+
+查看指定stash的diff
+git stash show
+git stash show -p
+
+```
+
