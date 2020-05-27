@@ -203,3 +203,5 @@ git stash show -p
 
 ```
 
+遇到protocol 'https' is not supported
+1. repo address之前有空格
