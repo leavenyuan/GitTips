@@ -96,15 +96,15 @@ git checkout <commitID> <filename>
 ```
 
 ###### 删除最后一次远程提交
+* revert是放弃指定提交的修改，但是会生成一次新的提交，需要填写提交注释，以前的历史记录都在；
+* reset是指将HEAD指针指到指定提交，历史记录中不会出现放弃的提交记录
 ```
 git revert HEAD
 git push origin master
 ```
-###### revert是放弃指定提交的修改，但是会生成一次新的提交，需要填写提交注释，以前的历史记录都在；
-###### reset是指将HEAD指针指到指定提交，历史记录中不会出现放弃的提交记录
 
 ###### 远端即可创建新的分支my_remote_new_branch,提交本地修改
-```
+```sh
 git push origin master:my_remote_new_branch
 ```
 
