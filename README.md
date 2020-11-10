@@ -236,3 +236,27 @@ git config --system --unset credential.helper
 git config --global credential.helper store
 然后再push就会提示输入用户名和新密码
 ```
+###### 删除远程仓库文件/文件夹
+```sh
+rm file/folder (-rf)
+git commit -a -m "A file was deleted"
+git push
+```
+
+###### 为已存在的仓库添加.gitignore文件
+```sh
+git ignore旨在对不在git仓库中的文件进行忽略，如果这些文件已经在git仓库中，则不会忽略。所以如果需要忽略的文件已经提交到本地仓库，则需要从本地仓库中删除掉，如果已经提交到远端仓库，则需要从远端仓库中删除。删除.gitignore文件才能实际生效。
+
+步骤：
+从远端仓库clone一份代码
+使用git rm file/to/be/ignored -r 删除需要被忽略的文件
+.gitignore中配置需要被忽略的文件
+git add . 然后git commit ；再git push 到远端服务器
+这样保证远端服务器上没有需要被Ignore的文件,即使在本地修改这些文件，使用git status查看也不会再有提示了。
+
+## .gitignore示例
+.idea
+*.iml
+/log
+
+```
