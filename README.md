@@ -35,6 +35,11 @@ git branch [branch name]
 git checkout origin/feature
 ```
 
+###### diff远程仓库和本地仓库
+```sh
+git diff master origin/master
+```
+
 ###### 切换分支
 ```
 git checkout [branch name]
