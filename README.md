@@ -278,3 +278,11 @@ That said, if you used git rm --cached on a new file that is staged, it would ba
 ```sh
 git branch -D dev
 ```
+
+###### attach file to repo
+```sh
+![alt text](http://url/to/img.png)
+
+or if it's stored in your repository. i.e.
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+```
