@@ -192,6 +192,11 @@ git push origin master   // 如果其他同学没有在你操作步骤四~六期
 git cherry-pick --abort
 ```
 
+###### 更新密码
+```sh
+git config --global --unset user.password
+```
+
 ###### 正在进行项目中某一部分的工作，里面的东西处于一个比较杂乱的状态，突然想转到其他分支上进行一些工作。但又不想提交进行了一半的工作，否则以后无法回到这个工作点。git stash用于将这些修改保存到本地。
 ```s
 stash暂存文件的范围
