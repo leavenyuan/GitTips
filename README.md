@@ -253,6 +253,11 @@ git commit -a -m "A file was deleted"
 git push
 ```
 
+###### 删除远程分支
+```sh
+git push --delete origin [branch name]
+```
+
 ###### 为已存在的仓库添加.gitignore文件
 ```sh
 git ignore旨在对不在git仓库中的文件进行忽略，如果这些文件已经在git仓库中，则不会忽略。所以如果需要忽略的文件已经提交到本地仓库，则需要从本地仓库中删除掉，如果已经提交到远端仓库，则需要从远端仓库中删除。删除.gitignore文件才能实际生效。
