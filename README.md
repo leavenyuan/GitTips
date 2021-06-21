@@ -1,5 +1,43 @@
 # GitTips
 
+- error: Your local changes to the following files would be overwritten by merge
+```sh
+方法一、stash
+$ git stash
+$ git commit
+$ git stash pop
+$ git status & fix confilct & git add & commit & push 
+
+git stash: 备份当前的工作区的内容，从最近的一次提交中读取相关内容，让工作区保证和上次提交的内容一致。同时，将当前的工作区内容保存到Git栈中。
+git stash pop: 从Git栈中读取最近一次保存的内容，恢复工作区的相关内容。由于可能存在多个Stash的内容，所以用栈来管理，pop会从最近的一个stash中读取内容并恢复。
+git stash list: 显示Git栈内的所有备份，可以利用这个列表来决定从那个地方恢复。
+git stash clear: 清空Git栈。此时使用gitg等图形化工具会发现，原来stash的哪些节点都消失了。
+
+方法二、放弃本地修改，直接覆盖
+
+$ git reset --hard
+$ git pull
+```
+
+- Git HEAD detached from XXX (git HEAD 游离) 解决办法
+```sh
+HEAD 处于游离状态时，我们可以很方便地在历史版本之间互相切换，比如需要回到某次提交，直接 checkout 对应的 commit id 或者 tag 名即可。
+它的弊端就是：在这个基础上的提交会新开一个匿名分支
+也就是说我们的提交是无法可见保存的，一旦切到别的分支，游离状态以后的提交就不可追溯了。
+解决办法就是新建一个分支保存游离状态后的提交：
+
+$ git branch -v    # 查看当前领先多少
+$ git branch temp
+$ git checkout temp     # 新建一个 temp 分支，把当前提交的代码放到整个分支
+$ git checkout main-branch    # checkout回主分支
+$ git merge temp    # merge 刚才创建的临时分支，把那些代码拿回来
+$ git status & fix confilct & git add & commit & push 
+$ git branch -d temp    # 删除临时分支
+
+查看log, 确保当前HEAD指向main-branch
+
+```
+
 ###### Clone project
 ```sh
 git clone git://example.com/myproject
@@ -61,9 +99,11 @@ git checkout 分支名
 git push origin <local_branch_name>:<remote_branch_name>
  ```
 
-###### 删除远程分支
+###### delete remote branch 删除远程分支
 ```
-git push origin :develop
+$ git push -d <remote_name> <branch_name>
+$ git branch -d <branch_name>
+$ git push origin :develop
 ```
 
 ###### 从已有的分支创建新的分支(如从master分支),创建一个dev分支
