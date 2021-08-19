@@ -1,6 +1,6 @@
 # GitTips
 
-- error: Your local changes to the following files would be overwritten by merge
+###### error: Your local changes to the following files would be overwritten by merge
 ```sh
 方法一、stash
 $ git stash
@@ -19,7 +19,7 @@ $ git reset --hard
 $ git pull
 ```
 
-- Git HEAD detached from XXX (git HEAD 游离) 解决办法
+######  Git HEAD detached from XXX (git HEAD 游离) 解决办法
 ```sh
 HEAD 处于游离状态时，我们可以很方便地在历史版本之间互相切换，比如需要回到某次提交，直接 checkout 对应的 commit id 或者 tag 名即可。
 它的弊端就是：在这个基础上的提交会新开一个匿名分支
@@ -342,3 +342,9 @@ git branch -D dev
 or if it's stored in your repository. i.e.
 ![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
 ```
+
+###### 修改git编辑器从nano到vim
+    git config --global core.editor vim
+    
+###### $ git commit -m'xxx'  error: insufficient permission for adding an object to repository database .git/objects
+    $ sudo chown -Rv xiaoxubeii:xiaoxubeii .git/objects/*
