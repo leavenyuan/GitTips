@@ -43,7 +43,7 @@ $ git branch -d temp    # 删除临时分支
 git clone git://example.com/myproject
 ```
 
-- fetch remote branch 拉取远程分支
+###### fetch remote branch 拉取远程分支
 ```sh
 If daves_branch exists on the remote repository, but not on your local branch, you can simply type:
 $ git switch daves_branch
