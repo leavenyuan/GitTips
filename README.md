@@ -1,5 +1,10 @@
 # GitTips
 
+###### 回退到某一commit
+```sh
+git reset --hard a1a6954dcbc13a544c2e7428dfb1fb10ac9cd179
+```
+
 ###### error: Your local changes to the following files would be overwritten by merge
 ```sh
 方法一、stash
