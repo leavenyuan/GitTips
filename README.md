@@ -371,3 +371,10 @@ $ git reset --hard HEAD^
 $ git push origin AIX -f
 ```
 
+###### 提交merge request(界面)
+```sh
+1. 从目标分支新建一个分支
+2. 做出修改提交commit
+3. 到目标分支选择merge request
+4. 等待merge
+```
