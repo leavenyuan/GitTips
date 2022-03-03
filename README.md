@@ -1,5 +1,15 @@
 # GitTips
 
+![image](https://user-images.githubusercontent.com/16644948/156517349-e2334b92-6ec8-4425-82ea-2cb4020f4163.png)
+
+Workspace：工作区
+Index / Stage：暂存区
+Repository：仓库区（或本地仓库）
+Remote：远程仓库
+![image](https://user-images.githubusercontent.com/16644948/156517378-21604027-5b70-44d6-a441-7eace78d9ce0.png)
+
+
+
 ###### 回退到某一commit
 ```sh
 git reset --hard a1a6954dcbc13a544c2e7428dfb1fb10ac9cd179
@@ -57,6 +67,7 @@ $ git switch daves_branch
 ###### 如果你想快速的代上面的分支，你可以直接切换到那个分支：
 ```sh
 git checkout origin/feature
+git checkout -b dev  创建并切换到新分支  git branch 新建+ git checkout 切换
 ```
 
 ###### 新增远程项目
@@ -353,3 +364,10 @@ or if it's stored in your repository. i.e.
     
 ###### $ git commit -m'xxx'  error: insufficient permission for adding an object to repository database .git/objects
     $ sudo chown -Rv xiaoxubeii:xiaoxubeii .git/objects/*
+
+###### 删除分支上最近一次的提交记录(删除commit)
+```sh
+$ git reset --hard HEAD^
+$ git push origin AIX -f
+```
+
