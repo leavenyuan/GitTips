@@ -61,7 +61,7 @@ git clone git://example.com/myproject
 ###### fetch remote branch 拉取远程分支
 ```sh
 If daves_branch exists on the remote repository, but not on your local branch, you can simply type:
-$ git switch daves_branch
+$ git switch daves_branch  [from version 2.23]
 ```
 
 ###### 如果你想快速的代上面的分支，你可以直接切换到那个分支：
