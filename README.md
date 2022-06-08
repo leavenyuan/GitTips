@@ -9,10 +9,10 @@ Remote：远程仓库
 ![image](https://user-images.githubusercontent.com/16644948/156517378-21604027-5b70-44d6-a441-7eace78d9ce0.png)
 
 
-#### git branch 
-
- -vv will list all branches on the local system including the remote branch information if they are tracked
-
+#### git branch -vv 
+```sh
+list all branches on the local system including the remote branch information if they are tracked
+```
 
 #### 回退到某一commit
 ```sh
