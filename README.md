@@ -103,7 +103,8 @@ git push [remote repo name 2] branchName
 
 #### 创建本地分支
 ```
-git branch [branch name]
+git branch [branch name]  # 从当前所在分支的最新commit创建分支，不建立追踪关系
+git branch --tack [branch name]  # 追踪当前分支的当时创建新分支
 ```
 
 #### 如果你想快速的代上面的分支，你可以直接切换到那个分支：
