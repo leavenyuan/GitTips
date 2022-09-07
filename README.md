@@ -8,6 +8,11 @@ Repository：仓库区（或本地仓库）
 Remote：远程仓库
 ![image](https://user-images.githubusercontent.com/16644948/156517378-21604027-5b70-44d6-a441-7eace78d9ce0.png)
 
+#### command line user guide
+
+$ git help -a
+
+
 #### HEAD
 ```sh
 You can think of the HEAD as the "current branch". When you switch branches with git checkout, the HEAD revision changes to point to the tip of the new branch.
