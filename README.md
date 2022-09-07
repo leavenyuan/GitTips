@@ -402,3 +402,8 @@ $ git push origin AIX -f
 3. 到目标分支选择merge request
 4. 等待merge
 ```
+
+#### download a single from from github repo
+
+1. locate the file and click "Raw" to get the link
+2. wget/curl the link to download the file
