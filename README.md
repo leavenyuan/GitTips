@@ -219,6 +219,7 @@ git commit -v --amend
 #### 输出酷炫的可视化日志
 ```
 git log --pretty=oneline --graph --decorate --all
+git show {commit id} # 查看具体提交内容
 ```
 
 #### 如果想知道更改内容和更改者的相关简要说明，可以向git申请变更日志类似的文件
