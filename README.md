@@ -28,6 +28,7 @@ list all branches on the local system including the remote branch information if
 
 #### 回退到某一commit
 ```sh
+git reflog  # 找到提交id
 git reset --hard a1a6954dcbc13a544c2e7428dfb1fb10ac9cd179
 ```
 
