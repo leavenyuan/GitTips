@@ -407,6 +407,37 @@ $ git push origin AIX -f
 ```
 
 #### download a single from from github repo
-
+```sh
 1. locate the file and click "Raw" to get the link
 2. wget/curl the link to download the file
+```
+
+#### 已经push到远程仓库的分支，如何使得gitignore文件生效
+```sh
+vi .gitignore
+git rm --cached 文件路径
+git add .gitignore
+git commit -m "Update .gitignore"
+git push origin 分支名
+```
+
+
+
+#### 要将两个文件夹的文件在一个git仓库中维护
+```sh
+创建不同的分支，维护不同的文件夹
+cd 目录1
+git init
+git remote add origin 远程仓库URL
+git add .
+git commit -m "Initial commit"
+git push origin master
+
+cd 目录2
+git init
+git remote add origin 远程仓库URL
+git add .
+git commit -m "Initial commit"
+git checkout -b 新分支名
+git push origin 新分支名
+```
