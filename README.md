@@ -8,6 +8,51 @@ Repository：仓库区（或本地仓库）
 Remote：远程仓库
 ![image](https://user-images.githubusercontent.com/16644948/156517378-21604027-5b70-44d6-a441-7eace78d9ce0.png)
 
+#### 从 dev 分支拉取个人开发分支、完成本地开发并合并到开发分支的典型流程
+下面是一个从 dev 分支拉取个人开发分支、完成本地开发并合并到开发分支的典型流程，以及相关的 Git 命令：
+
+1. 确保你在 dev 分支上：
+git checkout dev
+
+3. 拉取最新的 dev 分支代码：
+git pull origin dev 
+
+3. 创建并切换到个人开发分支（假设分支名为 feature-branch，你可以根据实际情况修改）：
+git checkout -b feature-branch 
+
+4. 进行本地开发：
+在 feature-branch 分支上进行你的本地开发。
+
+5. 提交本地开发的变更：
+git add . git commit -m "描述你的提交信息" 
+
+6. 推送变更到远程个人开发分支：
+git push origin feature-branch 
+
+7. 在 GitLab 平台上创建合并请求：
+打开你的个人开发分支 feature-branch，然后选择创建合并请求。选择将变更合并到 dev 分支。这一步通常在远程仓库的网页界面上完成。
+
+8. 等待审核并解决可能的冲突：
+如果有其他开发人员审核你的合并请求，并且出现冲突，解决冲突并提交变更。
+
+9. 合并到 dev 分支：
+在远程仓库上合并合并请求，
+
+或者在本地执行：
+- 切换回 dev 分支  $ git checkout dev
+- 拉取最新的 dev 分支代码 $ git pull origin dev 
+- 合并 feature-branch 到 dev 分支 $ git merge feature-branch 
+- 解决可能的冲突 
+- 提交合并的变更 $ git commit -m "Merge feature-branch into dev" 
+- 推送合并后的 dev 分支到远程仓库  $ git push origin dev
+
+10. 删除本地的个人开发分支（如果不再需要）：
+$ git branch -d feature-branch 
+或者如果分支没有被完全合并，可以使用 -D 强制删除：
+$ git branch -D feature-branch 
+
+这就完成了从 dev 分支拉取个人开发分支，完成本地开发并合并到开发分支的整个流程。请确保在执行 Git 操作时理解每个命令的作用，并谨慎处理可能的冲突。
+
 #### command line user guide
 
 $ git help -a
