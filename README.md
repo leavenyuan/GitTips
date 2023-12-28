@@ -8,6 +8,11 @@ Repository：仓库区（或本地仓库）
 Remote：远程仓库
 ![image](https://user-images.githubusercontent.com/16644948/156517378-21604027-5b70-44d6-a441-7eace78d9ce0.png)
 
+### 查看哪些提交尚未合并到目标分支
+
+`git log origin/target-branch..source-branch`
+
+
 ### 将另一个分支的所有改动合并到当前分支
 1. 步骤一：切换到目标分支
 
