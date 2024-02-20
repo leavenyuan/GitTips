@@ -8,11 +8,39 @@ Repository：仓库区（或本地仓库）
 Remote：远程仓库
 ![image](https://user-images.githubusercontent.com/16644948/156517378-21604027-5b70-44d6-a441-7eace78d9ce0.png)
 
+***
+#### 如何解决 fatal: Not possible to fast-forward, aborting
+
+当出现 "fatal: Not possible to fast-forward, aborting." 错误时，通常是因为 Git 无法执行快速转发合并（fast-forward merge），这可能是由于当前分支与目标分支之间存在冲突或历史提交记录的变化所致。
+
+##### 法1: 拉取最新代码并重新尝试合并：首先确保您的本地仓库是最新的，并尝试再次执行合并操作。
+`git fetch origin`
+
+`git checkout <your-branch>`
+
+`git merge origin/<target-branch>`
+
+##### 法2: 强制执行合并：如果您确定合并操作是安全的，可以使用 --ff-only 选项来强制执行快速转发合并。
+`git merge --ff-only origin/<target-branch>`
+
+##### 法3: 重新设置当前分支：如果以上方法都不起作用，您可以尝试将当前分支重置为目标分支的最新状态。请确保您的工作区是干净的，并且没有未提交的更改。
+`git checkout <your-branch>`
+
+`git reset --hard origin/<target-branch>`
+##### 法4: 手动合并：作为最后的手段，您可以手动合并更改。这涉及查看冲突并手动编辑文件以解决冲突。
+`git merge origin/<target-branch>`
+
+`git add .`
+
+`git commit -m "Resolved conflicts"`
+
+
+***
 #### 查看哪些提交尚未合并到目标分支
 
 `git log origin/target-branch..source-branch`
 
-
+***
 #### 将另一个分支的所有改动合并到当前分支
 1. 步骤一：切换到目标分支
 
@@ -55,7 +83,7 @@ Remote：远程仓库
 - 在合并之前，建议先测试改动，确保它们在当前分支上正常工作。
 - 如果你只是想查看要合并的改动而不实际进行合并，可以使用git diff命令来查看差异。
 
-
+***
 #### 从 dev 分支拉取个人开发分支、完成本地开发并合并到开发分支的典型流程
 下面是一个从 dev 分支拉取个人开发分支、完成本地开发并合并到开发分支的典型流程，以及相关的 Git 命令：
 
@@ -101,11 +129,13 @@ $ git branch -D feature-branch
 
 这就完成了从 dev 分支拉取个人开发分支，完成本地开发并合并到开发分支的整个流程。请确保在执行 Git 操作时理解每个命令的作用，并谨慎处理可能的冲突。
 
+***
 #### command line user guide
 
 $ git help -a
 
 
+***
 #### HEAD
 ```sh
 You can think of the HEAD as the "current branch". When you switch branches with git checkout, the HEAD revision changes to point to the tip of the new branch.
@@ -114,17 +144,20 @@ You can see what HEAD points to by doing:
 $ cat .git/HEAD
 ```
 
+***
 #### git branch -vv 
 ```sh
 list all branches on the local system including the remote branch information if they are tracked
 ```
 
+***
 #### 回退到某一commit
 ```sh
 git reflog  # 找到提交id
 git reset --hard a1a6954dcbc13a544c2e7428dfb1fb10ac9cd179
 ```
 
+***
 #### error: Your local changes to the following files would be overwritten by merge
 ```sh
 方法一、stash
@@ -144,12 +177,14 @@ $ git reset --hard
 $ git pull
 ```
 
+***
 #### 合并推荐方式(git rebase)
 [git rebase](https://tutorial.helloflask.com/database/)
 ```sh
 使用分支，保持主分支的整洁。这是我强烈推荐的一点，在分支进行提交，然后切到主分支更新(git pull —rebase)，再合并分支、推送。这样的流程会避免交叉合并的情况出现（不会出现共同祖先节点为多个的情况）。事实上，git合并操作让很多人感到不知所措的原因就是各种原因所产生的交叉合并问题，从而造成在合并的过程中丢失某些代码。保持主分支的整洁能够避免交叉合并的情况出现。
 ```
 
+***
 ####  Git HEAD detached from XXX (git HEAD 游离) 解决办法
 ```sh
 HEAD 处于游离状态时，我们可以很方便地在历史版本之间互相切换，比如需要回到某次提交，直接 checkout 对应的 commit id 或者 tag 名即可。
@@ -168,70 +203,83 @@ $ git branch -d temp    # 删除临时分支
 查看log, 确保当前HEAD指向main-branch
 ```
 
+***
 #### Clone project
 ```sh
 git clone git://example.com/myproject
 ```
 
+***
 #### fetch remote branch 拉取远程分支
 ```sh
 If daves_branch exists on the remote repository, but not on your local branch, you can simply type:
 $ git switch daves_branch  [from version 2.23]
 ```
 
+***
 #### 如果你想快速的代上面的分支，你可以直接切换到那个分支：
 ```sh
 git checkout origin/feature
 git checkout -b dev  创建并切换到新分支  git branch 新建+ git checkout 切换
 ```
 
+***
 #### 新增远程项目
 ```
 git remote add [remote repo name as you want] [remote repo address]
 ```
 
+***
 #### 查看远程仓库
 ```
 git remote
 ```
 
+***
 #### 向远程仓库推送
 ```sh
 git push [remote repo name 1] branchName
 git push [remote repo name 2] branchName
 ```
 
+***
 #### 创建本地分支
 ```
 git branch [branch name]  # 从当前所在分支的最新commit创建分支，不建立追踪关系
 git branch --track [branch name]  # 追踪当前分支的当时创建新分支
 ```
 
+***
 #### 如果你想快速的代上面的分支，你可以直接切换到那个分支：
 ```
 git checkout origin/feature
 ```
 
+***
 #### diff远程仓库和本地仓库
 ```sh
 git diff master origin/master
 ```
 
+***
 #### 切换分支
 ```
 git checkout [branch name]
 ```
 
+***
 #### 切换本地分支
 ```
 git checkout 分支名
 ```
 
+***
 #### 提交分支数据到远程服务器
 ```
 git push origin <local_branch_name>:<remote_branch_name>
  ```
 
+***
 #### delete remote branch 删除远程分支
 ```
 $ git push -d <remote_name> <branch_name>
@@ -239,46 +287,55 @@ $ git branch -d <branch_name>
 $ git push origin :develop
 ```
 
+***
 #### 从已有的分支创建新的分支(如从master分支),创建一个dev分支
 ```
 git checkout -b dev
 ```
 
+***
 #### 关联对于dev分支的跟踪
 ```
 git branch --set-upstream-to=origin/dev
 ```
 
+***
 #### 取消对master的跟踪
 ```
 git branch --unset-upstream master
 ```
 
+***
 #### 撤销本地仓库(未提交)的修改
 ```
 git checkout fileName
 ```
 
+***
 #### 取消暂存(已执行git add）
 ```
 git reset HEAD <filename>
 ```
- 
+
+*** 
 #### 查看指定文件的历史版本
 ```
 git log <filename>
 ```
 
+***
 #### see some abbreviated stats for each commit
 ```
  $ git log --stat
 ```
 
+***
 #### 回滚到指定commitID
 ```
 git checkout <commitID> <filename>
 ```
 
+***
 #### 删除最后一次远程提交
 * revert是放弃指定提交的修改，但是会生成一次新的提交，需要填写提交注释，以前的历史记录都在；
 * reset是指将HEAD指针指到指定提交，历史记录中不会出现放弃的提交记录
@@ -287,11 +344,13 @@ git revert HEAD
 git push origin master
 ```
 
+***
 #### 远端即可创建新的分支my_remote_new_branch,提交本地修改
 ```sh
 git push origin master:my_remote_new_branch
 ```
 
+***
 #### 当前分支的某个文件提交到另一个分支
 ``` 
   1.先在将当前把目标文件提交到remote repository, 记下commit-id, git log
@@ -299,7 +358,8 @@ git push origin master:my_remote_new_branch
   3.git cherry-pick commit-id
   4.git push origin {目标分支}
 ```
- 
+
+***
 #### 使用此标记来过滤合并提交以查看项目的历史记录
 ```
 git log --oneline --no-merges
