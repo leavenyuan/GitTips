@@ -9,6 +9,24 @@ Remote：远程仓库
 ![image](https://user-images.githubusercontent.com/16644948/156517378-21604027-5b70-44d6-a441-7eace78d9ce0.png)
 
 ***
+#### 使用submodule将子项目作为父项目的子模块，单独在不同的分支上开发
+1. 将内部子目录设置为 Submodule： 在外部目录中添加内部子目录作为 submodule。
+
+`git submodule add <URL-to-internal-repository> internal_directory`
+
+2. 切换到需要的分支： 在外部目录中切换到分支 A，然后初始化和更新 submodule。
+
+`git checkout A`
+
+`git submodule update --init --recursive`
+
+3. 在内部子目录中工作： 切换到内部子目录，并在其中工作，可以自由切换到分支 B。
+
+`cd internal_directory`
+
+`git checkout B`
+
+***
 #### 如何解决 fatal: Not possible to fast-forward, aborting
 
 当出现 "fatal: Not possible to fast-forward, aborting." 错误时，通常是因为 Git 无法执行快速转发合并（fast-forward merge），这可能是由于当前分支与目标分支之间存在冲突或历史提交记录的变化所致。
