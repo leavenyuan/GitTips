@@ -8,6 +8,12 @@ Repository：仓库区（或本地仓库）
 Remote：远程仓库
 ![image](https://user-images.githubusercontent.com/16644948/156517378-21604027-5b70-44d6-a441-7eace78d9ce0.png)
 
+#### 拉取远程存在但是本地不存在的分支到本地
+
+`git featch origin [branch name]`<br>
+`git checkout -b [branch name] origin/[branch name]`
+
+
 ***
 #### 使用submodule将子项目作为父项目的子模块，单独在不同的分支上开发
 1. 将内部子目录设置为 Submodule： 在外部目录中添加内部子目录作为 submodule。
